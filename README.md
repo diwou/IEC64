@@ -1,6 +1,6 @@
 # IEC64W - IEEE-488 Interface for Commodore C64 & C128
 
-![](https://codeberg.org/diwou/IEC64/Images/raw/branch/main/IEC64W_Interface.jpg)
+![](https://codeberg.org/diwou/IEC64/src/branch/main/Images/IEC64W_Interface.jpg)
 
 
 
