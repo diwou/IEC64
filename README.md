@@ -1,50 +1,44 @@
-# IEC64W - IEEE-488 Interface for Commodore C64 & C128
+# IEC64W – IEEE-488-Interface für Commodore C64 & C128
 
 ![](https://codeberg.org/diwou/IEC64/raw/branch/main/Images/IEC64W_Interface.jpg)
 
+## Einführung
 
+Dies ist der Nachbau der IEC64-Karte aus den 1980er Jahren. Sie stellt eine GPIB- (IEEE-488-) Schnittstelle bereit und wird am Expansionsport des Commodore C64 oder C128 betrieben.
 
-## Introduction
+Wer der ursprüngliche Entwickler der Karte war, ließ sich nicht herausfinden. Sie wurde von „WAW Elektronik“, „Jann Datentechnik“ und „REX Datentechnik“ in unterschiedlichen Varianten vertrieben – die technische Grundlage und das Kernal waren jedoch immer identisch. Nur die Einschaltmeldung wurde jeweils an die entsprechende Firma angepasst.
 
-This is the replica of the IEC64 card from the 80's. It provides a GPIB (IEEE-488) connection and plugs into the expansion port of the Commodore C64 or C128.
+Dies ist die Version, die damals von „WAW Elektronik“ verkauft wurde.
 
-Who the original developer of the card was, I could not find out. It was sold by "WAW Elektronik", "Jann Datentechnik" and "REX Datentechnik" in different versions, but the technical base and the kernal was always the same. With the Kernal only the switch-on message had been adapted according to the company.
+# Technik
 
-This is the version that was sold by "WAW Elektronik" at that time.
+Die Karte basiert auf dem MC6821P Peripheral Interface Adapter von Motorola. Außerdem ist das passende Kernal direkt als EPROM auf der Karte integriert.
 
+Somit kann die Karte einfach eingesteckt und sofort genutzt werden. Das Kernal sowie die gesamte Karte lassen sich per DIP-Schalter deaktivieren. Ersteres ist insbesondere dann interessant, wenn man das Kernal intern im Rechner betreiben möchte.
 
+Die Karte lässt sich so konfigurieren, dass ein Mischbetrieb aus IEC (z. B. 1541) und IEEE-488 möglich ist.
 
-# Technical
+# Stückliste
 
-The card is based on Motorola's MC6821P Peripheral Interface Adapter. Furthermore the corresponding kernal file is directly integrated as EPROM on the card. 
+Die Stückliste ist überschaubar. Der MC6821P ist gut über eBay oder UTSource erhältlich. Die genannten Hersteller dienen als Beispiele – selbstverständlich können auch Vergleichstypen anderer Hersteller verwendet werden.
 
-So the card can be simply plugged into the computer and started immediately. The Kernal, as well as the whole card can be deactivated by DIP switch. The former is interesting if you want to run the Kernal internally in the computer.
+| Menge | Bezeichnung   | Hersteller           | Herstellernummer             | Beschreibung |
+|-------|----------------|----------------------|-------------------------------|--------------|
+| 4     | C1–C4          | Dersonic             | CC1H104ZA1PD3F5O3000          | Keramik-Kondensator 100 nF, -20 % bis +80 %, 50 V, THT, Rastermaß 2,54 mm |
+| 1     | J2             | L-Com                | CIB24SRA                      | GPIB-Steckverbinder, 90°, Buchse |
+| 2     | R1, R2         | Yageo                | CFR-25JB-52-1K                | Widerstand 1 kΩ, 0,25 W, 5 %, axial |
+| 1     | RN2            | Vishay Dale          | CSC06A0110K0GPA               | Widerstandsnetzwerk, 5 × 10 kΩ, 6-polig, SIP |
+| 1     | RN1            | Vishay Dale          | CSC05A0110K0GPA               | Widerstandsnetzwerk, 4 × 10 kΩ, 5-polig, SIP |
+| 1     | SW1 & SW2      | Würth Elektronik     | 418117270906                  | DIP-Schalter, 6-polig, 2,54 mm Raster, 24 V |
+| 1     | U4             | Spansion             | AM27C128-150DC                | EPROM, UV, 128KBit, 16K × 8, 150 ns, 28-Pin CDIP |
+| 1     | U2             | Texas Instruments    | SN74LS11N                     | AND-Gatter, 3-fach, 3 Eingänge, DIP-14 |
+| 1     | U1             | Texas Instruments    | SN74LS00N                     | NAND-Gatter, 4-fach, DIP-14, 5,25 V |
+| 1     | U3             | Motorola             | MC6821P                       | Peripheral Interface Adapter (PIA) |
 
-The card can be set up in such a way that mixed operation of IEC, for example a 1541, and IEEE-488 is possible.
+# Lizenz
 
+Der Inhalt dieses Repositories, mit Ausnahme der Verzeichnisse „Docs“ und „Software“, steht unter folgender Lizenz:
 
-
-# BOM
-
-The parts list is quite clear. You can get the MC6821P quite well via eBay or UTSource. Otherwise, I have named the brands as representatives. Comparison types of other manufacturers can also be taken.
-
-| Quantity | Designator      | Manufacturer 1     | Manufacturer  Part Number 1 | Description                                                  |
-| -------- | --------------- | ------------------ | --------------------------- | ------------------------------------------------------------ |
-| 4        | C1,  C2, C3, C4 | Dersonic           | CC1H104ZA1PD3F5O3000        | Ceramic  Disc Capacitors 100nF -20%~+80% 50V Through Hole,P=2.54mm RoHS |
-| 1        | J2              | L-Com              | CIB24SRA                    | L-COM  - CIB24SRA - CONNECTOR GPIB R/A FEMALE                |
-| 2        | R1,  R2         | Yageo              | CFR-25JB-52-1K              | RES  1K OHM 1/4W 5% AXIAL                                    |
-| 1        | RN2             | Vishay  Dale       | CSC06A0110K0GPA             | RES  ARRAY 5 RES 10K OHM 6SIP                                |
-| 1        | RN1             | Vishay  Dale       | CSC05A0110K0GPA             | RES  ARRAY 4 RES 10K OHM 5SIP                                |
-| 1        | (SW1  & SW2)    | Wurth  Electronics | 418117270906                | DIP  SWITCH 2.54MM PITCH 6POL 24V                            |
-| 1        | U4              | Spansion           | AM27C128-150DC              | EPROM  UV 128K-Bit 16K x 8 150ns 28-Pin CDIP                 |
-| 1        | U2              | Texas  Instruments | SN74LS11N                   | IC  GATE AND 3CH 3-INP 14DIP                                 |
-| 1        | U1              | Texas  Instruments | SN74LS00N                   | IC,  74LS, 74LS00, DIP14, 5.25V                              |
-| 1        | U3              | Motorola           | MC6821P                     | PERIPHERAL  INTERFACE ADAPTER (PIA)                          |
-
-
-
-# License
-
-The contents of this repository, with the exception of the Docs and Software directories, are released under the following license:
-
-- the "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License" (CC BY-NC-SA 4.0) full text of this license is included in the [LICENSE.CC-NC-BY-SA-4.0](https://codeberg.org/diwou/IEC64/Images/raw/branch/main/LICENSE.CC-NC-BY-SA) file and a copy can also be found at https://creativecommons.org/licenses/by-nc-sa/4.0/
+- **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)**  
+Der vollständige Lizenztext befindet sich in der Datei [LICENSE.CC-NC-BY-SA-4.0](https://codeberg.org/diwou/IEC64/Images/raw/branch/main/LICENSE.CC-NC-BY-SA)  
+Eine Kopie ist außerdem hier verfügbar: https://creativecommons.org/licenses/by-nc-sa/4.0/
